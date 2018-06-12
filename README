@@ -1,0 +1,20 @@
+Requirements:
+STATEFUL
+CONCURRENT
+SERVICE
+CLIENT
+UI
+
+Chat protocol implementation was written and tested on Linux. Development was
+done using Python 3.6.4 but theoretically any Python 3.6.* will work, that has
+not been tested. 3.6+ is required due to the new style print syntax used. I
+would recommend using Bash or Zsh as the running Unix shell because some
+messages are color coded: Errors and Chat messages. Otherwise you may see
+some weird symbols on screen.
+
+Extra credit was implemented by having the server open an UDP socket and listen on
+broadcast. When a new client starts up with service discovery enabled, it will send
+a request on broadcast for a server IP. The server will then respond to this request,
+over broadcast, with its IP address. The client will then use that and initiate a
+connection. The binary ASCII strings to send are defined in the variables section of
+wisp_common. Code for discovery is in the start methods of client and server.
